@@ -4,37 +4,43 @@ createApp({
     data() {
         return {
             title: 'To Do List',
-            checked: true,
-            newToDo : '',
+            newToDo: '',
             items: [
                 {
-                    text : 'portare il cane dal veterinario',
+                    text: 'portare il cane dal veterinario',
                     done: false
                 },
                 {
-                    text : 'comprare gli ingredienti per la torta',
+                    text: 'comprare gli ingredienti per la torta',
                     done: false
                 },
                 {
-                    text : 'comprare gli ingredienti per la torta',
+                    text: '3o minuti di yoga',
                     done: false
                 },
-                
-
-
-
             ]
         }
     },
-    methods :{
-        addToDo(){
-            const newItem={
+
+    methods: {
+        addToDo() {
+            const newItem = {
                 text: this.newToDo,
-               done: false
+                done: false
             }
             this.items.push(newItem);
             this.newToDo = ''
-        }
+        },
+
+        toDoTrue() {
+            this.node = true,
+            document.getElementById('listItem').addEventListener('click', function () {
+                document.getElementById('listItem').classList.add('crossed')
+            })
+        },
+
+
+
     }
-    
+
 }).mount('#app')
